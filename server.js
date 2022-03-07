@@ -4,7 +4,7 @@ dotenv.config({ path: "./config.env" });
 const app = require("./app");
 
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect(process.env.MONGO_URL_PROD, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
