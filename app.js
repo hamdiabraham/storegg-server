@@ -6,6 +6,7 @@ const flash = require("connect-flash");
 const session = require("express-session");
 const mainRoute = require("./router");
 const cors = require("cors");
+const compression = require("compression");
 
 app.use(cors());
 
@@ -29,6 +30,8 @@ app.use(
   express.static(path.join(__dirname, "/node_modules/admin-lte/"))
 );
 app.use(methodOverride("_method"));
+
+app.use(compression());
 
 app.use(mainRoute);
 
