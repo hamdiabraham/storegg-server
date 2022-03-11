@@ -11,12 +11,14 @@ class Payment {
 
       const payment = await PaymentModel.find().populate("banks");
 
-      res.render("admin/payment/viewPayment", {
-        payment,
-        alert,
-        name: req.session.user.name,
-        title: "Payment",
-      });
+      res.status(200).json({ data: payment });
+
+      // res.render("admin/payment/viewPayment", {
+      //   payment,
+      //   alert,
+      //   name: req.session.user.name,
+      //   title: "Payment",
+      // });
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
       req.flash("alertStatus", "danger");

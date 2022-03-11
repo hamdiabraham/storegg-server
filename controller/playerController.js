@@ -30,6 +30,7 @@ class Player {
       const voucher = await VoucherModel.findOne({ _id: id })
         .populate("category")
         .populate("nominals")
+        .populate("payment")
         .populate("user", "id name phoneNumber");
 
       if (!voucher) {

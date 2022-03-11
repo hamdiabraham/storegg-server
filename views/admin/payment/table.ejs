@@ -13,7 +13,14 @@
         <tr>
           <td><%= i + 1 %></td>
           <td><%= payment[i].type %></td>
-          <td><%= payment[i]?.banks?.name ?? '-' %> (<%= payment[i]?.banks?.bank %>) <%= payment[i]?.banks?.bankAccount ?? '-' %></td>
+          <td>
+            <% payment[i].banks.forEach(bank => { %>
+              <span class="badge badge-warning">
+                <%= bank.name %>-<%= bank.bank %>-<%= bank.bankAccount %> 
+              </span>
+            <% }) %>
+          </td>
+          <!-- <td><%= payment[i]?.banks?.name ?? '-' %> (<%= payment[i]?.banks?.bank %>) <%= payment[i]?.banks?.bankAccount ?? '-' %></td> -->
           <td>
             <% if (payment[i].status === 'Y') { %>
              <span class="badge badge-success">
